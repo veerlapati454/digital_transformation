@@ -1,0 +1,422 @@
+/* =====================================================================
+   LOGIN PAGE
+   Standalone auth screen — split visual/form layout matching the Figma
+   reference. Not dependent on about.css/service.css since it has no
+   site header or footer. Local tokens below mirror the palette used
+   elsewhere on the site (orange accent, dark ink, Poppins/Inter/
+   JetBrains Mono type system).
+
+   Layout approach: the photo is a full-bleed absolutely-positioned
+   background layer spanning the ENTIRE shell (not just the left 46%).
+   The purple form panel sits on top of it, offset to the right with
+   margin-left, and its rounded left edge is cut with border-radius.
+   Because the photo already extends under that curve, whatever the
+   radius exposes is more photo — never a bare background color.
+   ===================================================================== */
+
+:root{
+  --orange:#ff6a2e;
+  --ink:#1c1a2e;
+  --panel-purple-1:#9a86f2;
+  --panel-purple-2:#7c5cf0;
+}
+
+*{box-sizing:border-box;}
+
+html, body{
+  margin:0;
+  height:100%;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#0b0a12;
+}
+
+.login-shell{
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+}
+
+/* ---------- Photo layer: full-bleed background behind everything ---------- */
+.login-visual{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  background:#05040a;
+}
+.login-visual-img{
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  opacity:0.92;
+}
+.login-visual-scrim{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(5,4,10,0.55) 0%, rgba(5,4,10,0.15) 35%, rgba(5,4,10,0.65) 100%);
+}
+
+.login-brand{
+  position:absolute;
+  top:48px;
+  left:48px;
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  z-index:2;
+}
+.login-brand-logo{
+  height:64px;
+  width:auto;
+  display:block;
+  mix-blend-mode:multiply;
+}
+
+.login-visual-title{
+  position:absolute;
+  left:48px;
+  top:128px;
+  z-index:2;
+  margin:0;
+  font-family:'JetBrains Mono', monospace;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:#fff;
+  font-size:22px;
+}
+
+/* ---------- Right: form panel, floats on top of the photo layer ---------- */
+.login-panel{
+  position:relative;
+  z-index:1;
+  margin-left:46%;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:56px 6vw;
+  background:linear-gradient(155deg, var(--panel-purple-1) 0%, var(--panel-purple-2) 60%, #6a4ce8 100%);
+  /* Large asymmetric radius on the left edge only, to echo the organic
+     curve the panel makes into the photo in the reference. Whatever
+     this radius exposes is the photo layer behind it, not blank space. */
+  border-radius:120px 0 0 120px / 50% 0 0 50%;
+}
+
+.login-panel-inner{
+  width:100%;
+  max-width:460px;
+}
+
+.login-eyebrow{
+  display:block;
+  font-family:'JetBrains Mono', monospace;
+  font-weight:500;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(28,24,46,0.7);
+  font-size:13px;
+  margin-bottom:10px;
+}
+.login-heading{
+  font-family:'Poppins',sans-serif;
+  font-weight:600;
+  color:var(--ink);
+  font-size:clamp(22px,2.6vw,28px);
+  margin:0 0 28px;
+}
+
+/* ---------- Social row ---------- */
+.login-social{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:28px;
+  flex-wrap:wrap;
+}
+.login-social-google{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:#fff;
+  border-radius:999px;
+  padding:10px 20px 10px 10px;
+  text-decoration:none;
+  color:var(--ink);
+  font-size:14px;
+  font-weight:500;
+  box-shadow:0 6px 16px rgba(20,10,60,0.18);
+}
+.login-social-google-icon{
+  width:26px;height:26px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.login-social-google-icon svg{width:18px;height:18px;}
+
+.login-social-circle{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:var(--ink);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  flex:0 0 auto;
+}
+.login-social-circle svg{width:18px;height:18px;}
+
+.login-divider{
+  position:relative;
+  text-align:center;
+  margin:0 0 26px;
+}
+.login-divider::before{
+  content:"";
+  position:absolute;
+  top:50%;left:0;right:0;
+  height:1px;
+  background:rgba(28,24,46,0.35);
+}
+.login-divider span{
+  position:relative;
+  background:transparent;
+  padding:0 14px;
+  font-size:13px;
+  font-weight:500;
+  color:rgba(28,24,46,0.65);
+  background-image:linear-gradient(155deg, var(--panel-purple-1) 0%, var(--panel-purple-2) 60%, #6a4ce8 100%);
+}
+
+.login-back-top{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-bottom:20px;
+  color:rgba(28,24,46,0.75);
+  font-size:13.5px;
+  font-weight:600;
+  text-decoration:none;
+  background:none;
+  border:none;
+  padding:0;
+  cursor:pointer;
+  font-family:'Inter',sans-serif;
+}
+.login-back-top svg{width:14px;height:14px;}
+.login-back-top:hover{color:var(--ink);}
+/* ---------- Form ---------- */
+.login-form{display:flex;flex-direction:column;gap:20px;}
+
+.login-role{
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.login-password-wrap{
+  position:relative;
+}
+.login-password-wrap input{
+  padding-right:44px;
+}
+.login-password-toggle{
+  position:absolute;
+  top:50%;
+  right:12px;
+  transform:translateY(-50%);
+  background:none;
+  border:none;
+  padding:4px;
+  cursor:pointer;
+  color:rgba(28,24,46,0.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.login-password-toggle:hover{color:var(--ink);}
+.login-password-toggle svg{width:18px;height:18px;}
+
+/* Hide Edge's native password-reveal icon so only our custom toggle shows */
+.login-password-wrap input::-ms-reveal,
+.login-password-wrap input::-ms-clear{
+  display:none;
+}
+.login-field-label,
+.login-field label{
+  display:block;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.login-role-options{display:flex;gap:10px;}
+.login-role-pill{
+  position:relative;
+  cursor:pointer;
+}
+.login-role-pill input{
+  position:absolute;
+  opacity:0;
+  width:100%;height:100%;
+  margin:0;
+  cursor:pointer;
+}
+.login-role-pill span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:96px;
+  padding:9px 18px;
+  border-radius:999px;
+  border:1.5px solid rgba(28,24,46,0.35);
+  color:var(--ink);
+  font-size:13.5px;
+  font-weight:600;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.login-role-pill input:checked + span{
+  background:var(--ink);
+  border-color:var(--ink);
+  color:#fff;
+}
+.login-role-pill input:focus-visible + span{
+  outline:2px solid #fff;
+  outline-offset:2px;
+}
+
+.login-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.login-field input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1.5px solid rgba(28,24,46,0.4);
+  background:rgba(255,255,255,0.35);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  outline:none;
+  transition:border-color .2s ease, background .2s ease;
+}
+.login-field input::placeholder{color:rgba(28,24,46,0.45);}
+.login-field input:focus{
+  border-color:var(--ink);
+  background:rgba(255,255,255,0.55);
+}
+.login-field input:invalid:not(:placeholder-shown){
+  border-color:#c0392b;
+}
+
+.login-hint{
+  display:block;
+  margin-top:6px;
+  font-size:12px;
+  color:rgba(28,24,46,0.55);
+}
+.login-hint.is-error{color:#8b1a1a;font-weight:600;}
+
+.login-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.login-remember{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:13.5px;
+  color:var(--ink);
+  cursor:pointer;
+}
+.login-remember input{width:16px;height:16px;accent-color:var(--ink);}
+
+.login-forgot{
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--ink);
+  text-decoration:none;
+  border-bottom:1.5px solid rgba(28,24,46,0.5);
+  padding-bottom:1px;
+}
+.login-forgot:hover{border-color:var(--ink);}
+
+.login-submit{
+  margin-top:4px;
+  align-self:flex-start;
+  padding:14px 40px;
+  border:none;
+  border-radius:999px;
+  background:var(--orange);
+  color:#1c1200;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+  box-shadow:0 10px 24px rgba(255,106,46,0.35);
+}
+.login-submit:hover{transform:translateY(-2px);}
+.login-submit:active{transform:translateY(0);}
+
+.login-signup-prompt{
+  margin:16px 0 0;
+  font-size:13.5px;
+  color:rgba(28,24,46,0.75);
+}
+.login-signup-link{
+  color:var(--ink);
+  font-weight:700;
+  text-decoration:none;
+  border-bottom:1.5px solid rgba(28,24,46,0.5);
+  padding-bottom:1px;
+}
+.login-signup-link:hover{border-color:var(--ink);}
+
+/* ---------- Responsive ---------- */
+/* Below 980px we drop the overlapping full-bleed layout and go back to
+   a simple stacked flow: photo strip on top, form panel below. */
+@media (max-width:980px){
+  .login-shell{
+    position:static;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    overflow:visible;
+  }
+  .login-visual{
+    position:relative;
+    inset:auto;
+    flex:0 0 260px;
+    min-height:260px;
+  }
+  .login-visual-title{top:auto;bottom:24px;}
+  .login-panel{
+    margin-left:0;
+    min-height:auto;
+    border-radius:60px 60px 0 0 / 40px 40px 0 0;
+    padding:48px 7vw 64px;
+  }
+  .login-divider span{background-image:none;background:var(--panel-purple-2);}
+}
+
+@media (max-width:560px){
+  .login-grid{grid-template-columns:1fr;}
+  .login-brand{top:24px;left:24px;}
+  .login-visual-title{left:24px;}
+  .login-submit{width:100%;text-align:center;}
+}

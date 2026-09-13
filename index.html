@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stackly — Growth Marketing Consultancy</title>
+<script>
+  // Runs before paint: stop the browser from restoring/jumping to any
+  // previous scroll position or #hash, so refresh always lands at the top
+  // with no visible snap on mobile or desktop.
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  window.scrollTo(0, 0);
+  // Lock scroll immediately so nothing shifts underneath the preloader
+  document.documentElement.classList.add('is-loading');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-bg" aria-hidden="true"></div>
+  <div class="preloader-content">
+    <div class="preloader-logo-mask">
+      <svg class="preloader-ring" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="54"></circle>
+      </svg>
+      <span class="preloader-dot preloader-dot--a" aria-hidden="true"></span>
+      <span class="preloader-dot preloader-dot--b" aria-hidden="true"></span>
+      <span class="preloader-dot preloader-dot--c" aria-hidden="true"></span>
+      <img src="./assets/stackly_logo.webp" alt="Stackly" class="preloader-logo" id="preloaderLogo">
+    </div>
+    <p class="preloader-tagline" id="preloaderTagline">
+      <span>Crafting</span><span>growth</span><span>strategies</span><span>&mdash;</span><span>please</span><span>wait</span>
+    </p>
+    <div class="preloader-progress">
+      <span class="preloader-progress-fill" id="preloaderFill"></span>
+    </div>
+    <div class="preloader-percent" id="preloaderPercent">0%</div>
+  </div>
+</div>
+
+<header id="site-header">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo">
+      <img src="./assets/stackly_logo.webp" alt="Stackly logo" class="logo-img">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <button class="nav-close" id="navClose" aria-label="Close menu">&times;</button>
+      <a href="#home" class="active">Home</a>
+      <a href="./html/about.html">About</a>
+      <a href="./html/service.html">Service</a>
+      <a href="./html/blog.html">Blog</a>
+      <a href="./html/contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="./html/login.html" class="btn btn-outline">Login</a>
+      <a href="./html/signup.html" class="btn btn-solid">Signup</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow js-reveal">
+          <svg class="eyebrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14 2 4 13h7l-1 9 10-11h-7l1-9Z" fill="#e8467f"/>
+          </svg>
+          <span>Traffic growth / Audience<br>targeting / ROI-focused</span>
+        </div>
+        <p class="lead js-reveal">Elevate your brand with high-impact statistics and modern digital strategies designed for measurable growth.</p>
+        <a href="#home" class="btn btn-cream js-reveal">Let's build your brand &nbsp;›</a>
+      </div>
+      <div class="hero-right">
+        <div class="hero-title js-reveal">ANALYTICS</div>
+        <div class="hero-cards">
+          <div class="hero-card js-flip">
+            <div class="hero-card-inner">
+              <img src="./assets/i1.webp" alt="Marketer reviewing analytics on a laptop">
+            </div>
+          </div>
+          <div class="hero-card text-card js-flip">
+            <svg class="spark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3l8 9-8 9-8-9 8-9z" stroke="#1a1a1a" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M18.5 2.2l.55 1.55 1.55.55-1.55.55-.55 1.55-.55-1.55-1.55-.55 1.55-.55.55-1.55z" fill="#1a1a1a"/>
+            </svg>
+            <h4>Boosted brand visibility</h4>
+            <p>A global team of search-first content marketers engineering semantic relevancy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bg" aria-hidden="true"></div>
+</section>
+
+<!-- HELPING BRANDS STAND OUT -->
+<section class="section-dark" id="about">
+  <div class="wrap two-col">
+    <div>
+      <h2 class="js-reveal">Helping brands stand out and grow faster</h2>
+      <p class="desc js-reveal">Every strategy we build is rooted in research, tested in market, and refined against real performance data — not guesswork.</p>
+      <div class="point-list">
+        <div class="point-item open js-reveal">
+          <div class="point-label">Point 1 — Data-driven decisions</div>
+        </div>
+        <div class="point-item open js-reveal">
+          <div class="point-label">Point 2 — Results-focused approach</div>
+          <div class="point-body">We create and launch targeted campaigns designed to attract, engage, and convert customers.</div>
+        </div>
+        <div class="point-item open js-reveal">
+          <div class="point-label">Point 3 — Transparent communication</div>
+        </div>
+        <div class="point-item open js-reveal">
+          <div class="point-label">Point 4 — Customized strategies</div>
+        </div>
+      </div>
+      <div style="margin-top:36px;">
+        <a href="./html/404.html" class="btn btn-light js-reveal">Start your project</a>
+      </div>
+    </div>
+    <div class="side-image js-flip">
+      <img loading="lazy" decoding="async" src="./assets/i2.webp" alt="Marketing strategist reviewing campaign visuals">
+    </div>
+  </div>
+</section>
+
+<!-- MEASURABLE GROWTH -->
+<section class="section-navy">
+  <div class="wrap navy-inner">
+    <div class="location-tag">HYDERABAD, IN</div>
+    <div class="two-col" style="align-items:start;">
+      <div>
+        <h2 class="js-reveal">We focus on delivering measurable growth that impacts your bottom line</h2>
+        <a href="./html/404.html" class="btn btn-outline js-reveal">Speak with an expert &nbsp;›</a>
+        <div class="navy-services js-reveal">Email marketing &nbsp;/&nbsp; Web design &nbsp;/&nbsp; Brand strategy</div>
+      </div>
+      <div class="stat-card js-flip">
+        <p>Driving measurable revenue growth through strategic digital marketing solutions.</p>
+        <div class="big">120%</div>
+        <div class="caption">Revenue growth achieved</div>
+        <div class="stat-img">
+          <img loading="lazy" decoding="async" src="./assets/i3.webp" alt="Revenue growth chart overlay on a laptop">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND DESERVES BETTER -->
+<section class="section-dark" id="service">
+  <div class="wrap">
+    <div class="strategy-top">
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none"><path d="M14 2 4 13h7l-1 9 10-11h-7l1-9Z" fill="#e8467f"/></svg>
+      <h2 class="js-reveal">Your brand deserves better marketing strategies</h2>
+    </div>
+    <div class="strategy-body">
+      <div>
+        <div class="side-image js-flip" style="margin-bottom:26px;">
+          <img loading="lazy" decoding="async" src="./assets/i4.webp" alt="Team collaborating over a laptop">
+        </div>
+        <p class="js-reveal">A global team of search-first content marketers engineering semantic relevancy.</p>
+      </div>
+      <div class="strategy-cols">
+        <div class="col js-reveal">
+          <div class="dot"></div>
+          <h3>Strategy &amp; research</h3>
+          <p>Growth strategies designed to identify opportunities and strengthen long-term digital performance.</p>
+        </div>
+        <div class="col js-reveal">
+          <div class="dot"></div>
+          <h3>Content creation</h3>
+          <p>Creative content designed to engage audiences, strengthen branding, and improve digital reach.</p>
+        </div>
+        <div class="col js-reveal">
+          <div class="dot"></div>
+          <h3>Optimization</h3>
+          <p>Continuous optimization and scaling strategies focused on improving performance and increasing marketing ROI.</p>
+        </div>
+      </div>
+    </div>
+    <div class="divider-line"></div>
+    <div class="stats-row">
+      <div class="stat js-reveal">
+        <div class="num">70%</div>
+        <div class="label">Traffic growth through data-driven marketing strategies</div>
+      </div>
+      <div class="stat js-reveal">
+        <div class="num">3M</div>
+        <div class="label">Clicks generated with high-converting digital campaigns</div>
+      </div>
+      <div class="stat js-reveal">
+        <div class="num">10K</div>
+        <div class="label">Qualified leads generated through performance marketing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS FOCUSED -->
+<section class="section-dark">
+  <div class="wrap">
+    <div class="results-head">
+      <h2>Results-focused marketing for growing companies</h2>
+    </div>
+    <div class="avatar-cluster js-avatars">
+      <div class="av" style="width:78px;height:78px;left:18%;top:6px;"><img loading="lazy" decoding="async" src="./assets/i5.webp"></div>
+      <div class="av" style="width:64px;height:64px;left:2%;top:110px;"><img loading="lazy" decoding="async" src="./assets/i6.webp"></div>
+      <div class="av" style="width:72px;height:72px;left:32%;top:120px;"><img loading="lazy" decoding="async" src="./assets/i7.webp"></div>
+      <div class="av" style="width:78px;height:78px;right:20%;top:0;"><img loading="lazy" decoding="async" src="./assets/i8.webp"></div>
+      <div class="av" style="width:64px;height:64px;right:2%;top:110px;"><img loading="lazy" decoding="async" src="./assets/i9.webp"></div>
+      <div class="dot" style="left:12%;top:0;background:#e24545;"></div>
+      <div class="dot" style="left:38%;top:24px;background:#7c5cff;"></div>
+      <div class="dot" style="left:26%;top:200px;background:#f0b429;"></div>
+      <div class="dot" style="right:32%;top:170px;background:#e24545;"></div>
+      <div class="dot" style="right:12%;top:40px;background:#7c5cff;"></div>
+      <div class="dot" style="right:0;top:190px;background:#f0b429;"></div>
+    </div>
+    <div class="quote-wrap js-reveal">
+      <div class="quote-mark">&rdquo;</div>
+      <p>They don't just run campaigns — they build growth systems. Our revenue has grown steadily since we started working together. Their team is proactive, professional, and always focused on results.</p>
+      <div class="name">Olivia Hayes</div>
+      <div class="role">Business Consultant</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section-dark">
+  <div class="wrap">
+    <div class="choose-grid">
+      <div class="side-image js-flip">
+        <img loading="lazy" decoding="async" src="./assets/i10.webp" alt="Business handshake between partners">
+      </div>
+      <div>
+        <div class="eyebrow js-reveal">Why choose us</div>
+        <h2 class="js-reveal">A consulting partner built for long-term impact</h2>
+        <p class="desc js-reveal">We partner with organizations to deliver strategic clarity, actionable insights, and measurable results, ensuring every initiative drives real sustainable growth and strengthens resilience.</p>
+        <div class="mini-stats">
+          <div class="mini-stat js-reveal">
+            <div class="num">96%</div>
+            <div class="label">Successful outcomes</div>
+          </div>
+          <div class="mini-stat js-reveal">
+            <div class="num">40x</div>
+            <div class="label">Increase achievement rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="support-card js-reveal">
+      <div class="txt">
+        <h3>24/7 online support</h3>
+        <a href="./html/contact.html" class="btn-link">Reserve a session →</a>
+      </div>
+      <div class="diamond-anim">
+        <svg viewBox="0 0 100 100" fill="none">
+          <rect x="20" y="20" width="60" height="60" rx="14" transform="rotate(45 50 50)" stroke="#f15a29" stroke-width="2"/>
+          <rect x="32" y="32" width="36" height="36" rx="8" transform="rotate(45 50 50)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL STORY -->
+<section class="section-dark" id="blog">
+  <div class="wrap">
+    <div class="eyebrow js-reveal">Testimonial</div>
+    <h2 class="js-reveal" style="font-size:clamp(24px,2.8vw,32px);text-transform:uppercase;font-weight:600;">Success stories from our partners</h2>
+    <div class="story-grid">
+      <div class="side-image js-flip">
+        <img loading="lazy" decoding="async" src="./assets/i11.webp" alt="Managing director standing in a busy office">
+      </div>
+      <div>
+        <div class="quote-wrap js-reveal">
+          <div class="quote-mark">&rdquo;</div>
+          <p>Professional, insightful, and execution-focused — they helped us unlock efficiency, reduce costs, and drive consistent growth across key business functions seamlessly.</p>
+          <div class="name">Christopher Harris</div>
+          <div class="role">Managing Director</div>
+          <div class="story-avatars">
+            <img loading="lazy" decoding="async" src="./assets/i13.webp">
+            <img loading="lazy" decoding="async" src="./assets/i14.webp">
+            <img loading="lazy" decoding="async" src="./assets/i15.webp">
+            <img loading="lazy" decoding="async" src="./assets/i16.webp">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a href="#home" class="logo footer-logo">
+        <img src="./assets/stackly_logo.webp" alt="Stackly logo" class="logo-img logo-img-footer">
+      </a>
+      <p>AI-native legal operations for in-house teams and law firms. Human-reviewed, audit-ready, deployed in weeks.</p>
+      <div class="footer-socials">
+        <a href="./html/404.html" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1s2.5 1.12 2.5 2.5zM.24 8.25h4.48V23H.24V8.25zM8.13 8.25h4.3v2.01h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.86V23h-4.48v-6.42c0-1.53-.03-3.5-2.13-3.5-2.14 0-2.47 1.67-2.47 3.39V23H8.13V8.25z"/></svg>
+        </a>
+        <a href="./html/404.html" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.4 8.46L23.3 22h-6.86l-5.37-6.6L4.9 22H1.8l7.9-9.03L1 2h7.03l4.86 6.03L18.9 2zm-1.2 18h1.9L7.4 3.9H5.36L17.7 20z"/></svg>
+        </a>
+        <a href="./html/404.html" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.5s-.23-1.64-.94-2.36c-.9-.94-1.9-.95-2.36-1C16.9 3 12 3 12 3h-.01s-4.89 0-8.19.14c-.46.05-1.46.06-2.36 1C.73 4.86.5 6.5.5 6.5S.27 8.42.27 10.35v1.79c0 1.93.23 3.85.23 3.85s.23 1.64.94 2.36c.9.94 2.08.91 2.6 1.01 1.89.18 8.02.24 8.02.24s4.9-.01 8.2-.15c.46-.05 1.46-.06 2.36-1 .71-.72.94-2.36.94-2.36s.23-1.92.23-3.85v-1.79c0-1.93-.23-3.85-.23-3.85zM9.75 14.85V8.15L15.9 11.5l-6.15 3.35z"/></svg>
+        </a>
+        <a href="./html/404.html" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-2.72 0-3.06.01-4.13.06-1.06.05-1.79.22-2.43.47-.66.26-1.22.6-1.77 1.16A4.9 4.9 0 0 0 2.5 5.46c-.25.64-.42 1.37-.47 2.43C2 8.96 2 9.3 2 12s.01 3.04.06 4.11c.05 1.06.22 1.79.47 2.43.26.66.6 1.22 1.16 1.77.55.56 1.11.9 1.77 1.16.64.25 1.37.42 2.43.47C8.94 22 9.28 22 12 22s3.04-.01 4.11-.06c1.06-.05 1.79-.22 2.43-.47a4.9 4.9 0 0 0 1.77-1.16 4.9 4.9 0 0 0 1.16-1.77c.25-.64.42-1.37.47-2.43.05-1.07.06-1.41.06-4.11s-.01-3.04-.06-4.11c-.05-1.06-.22-1.79-.47-2.43a4.9 4.9 0 0 0-1.16-1.77A4.9 4.9 0 0 0 18.54.53c-.64-.25-1.37-.42-2.43-.47C15.04 0 14.7 0 12 0zm0 5.35A6.65 6.65 0 1 1 5.35 12 6.65 6.65 0 0 1 12 5.35zm0 10.97A4.32 4.32 0 1 0 7.68 12 4.32 4.32 0 0 0 12 16.32zm6.9-11.24a1.55 1.55 0 1 1-1.55-1.55 1.55 1.55 0 0 1 1.55 1.55z" transform="translate(0 2)"/></svg>
+        </a>
+        <a href="./html/404.html" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55v-2.1c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.26 5.68.42.36.78 1.08.78 2.18v3.24c0 .3.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="./html/404.html" aria-label="Threads">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 11.3c-.1-.05-.2-.1-.3-.14-.18-3.3-2-5.2-5.06-5.22-1.83-.02-3.35.7-4.28 2.06l1.5 1.03c.7-1.03 1.8-1.25 2.7-1.25.02 0 .03 0 .05 0 1.13.01 1.98.34 2.53.98.4.47.66 1.11.79 1.94-.99-.17-2.06-.22-3.2-.16-3.22.18-5.29 2.02-5.15 4.57.07 1.3.72 2.42 1.83 3.14 1.03.68 2.35.99 3.75.92 2.06-.1 3.68-.9 4.83-2.35.87-1.1 1.42-2.51 1.66-4.28.94.57 1.64 1.31 2.03 2.19.66 1.5.7 3.94-1.28 5.9-1.73 1.72-3.81 2.47-6.94 2.5-3.47-.03-6.1-1.14-7.8-3.31-1.6-2.03-2.42-4.93-2.44-8.63.02-3.7.84-6.6 2.44-8.63 1.7-2.17 4.33-3.28 7.8-3.31 3.5.03 6.16 1.15 7.92 3.33.86 1.07 1.51 2.4 1.93 3.94l1.87-.5c-.5-1.83-1.28-3.42-2.32-4.7C16.98 1.4 13.83.03 9.88 0 5.96.03 2.85 1.36.9 3.85-.83 6.06-1.7 9.14-1.7 12.5s.87 6.44 2.6 8.65C2.85 23.64 5.96 24.97 9.88 25c3.94-.03 6.83-1.42 8.84-4.15 1.85-2.5 1.86-5.86.79-8.06-.62-1.28-1.62-2.33-2.9-3.09-.02-.13-.06-.26-.11-.4z" transform="translate(2.5 -0.5) scale(0.95)"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Navigate</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="./html/service.html">Platform</a></li>
+        <li><a href="./html/service.html">Solutions</a></li>
+        <li><a href="./html/about.html">Security</a></li>
+        <li><a href="./html/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Registered office</h4>
+      <address class="footer-address">MMR Complex, Periyakollappatty<br>Chinna Thirupathi, Tamil Nadu<br>636008</address>
+      <div class="footer-hours">Mon&ndash;Fri &middot; 9am &ndash; 6pm IST</div>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Direct line</h4>
+      <a href="tel:+919876543210" class="footer-contact-row">
+        <span class="footer-contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <span>+91 98765 43210</span>
+      </a>
+      <a href="mailto:counsel@stackly.ai" class="footer-contact-row">
+        <span class="footer-contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5h18v14H3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 5l9 7 9-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Digitaltransformation@stackly.ai</span>
+      </a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 STACKLY Digitaltransformation. All rights reserved.</span>
+    <div class="footer-legal-links">
+      <a href="./html/404.html">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="./html/404.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="./js/script.js"></script>
+</body>
+</html>
