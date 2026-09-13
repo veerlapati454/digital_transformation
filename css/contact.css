@@ -330,4 +330,6 @@
   .ctc-info-card{flex-direction:column;}
   .ctc-info-divider{width:auto;height:1px;margin:0;}
   .ctc-map-frame{height:280px;}
+   .ctc-reach-side{text-align:center;}
+  .ctc-social-row{justify-content:center;}
 }
