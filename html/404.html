@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Route Not Found</title>
+<link rel="stylesheet" href="../css/404.css">
+</head>
+<body>
+
+<div class="stage">
+  <div class="grid-plane"></div>
+  <span class="trace t1"></span>
+  <span class="trace t2"></span>
+  <span class="trace t3"></span>
+  <canvas id="particles"></canvas>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <div class="content">
+    <div class="node-wrap">
+      <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+      <div class="frag"></div>
+      <div class="frag"></div>
+      <div class="frag"></div>
+      <div class="frag"></div>
+      <div class="frag"></div>
+    </div>
+
+    <div class="code-num" aria-hidden="true">
+      404
+      <span class="glitch-layer g1">404</span>
+      <span class="glitch-layer g2">404</span>
+    </div>
+
+    <div class="status-line">
+      <span class="status-dot"></span>
+      <span>SYNC_ERROR — NODE UNREACHABLE</span>
+    </div>
+
+    <h1 class="headline">This part of the transformation hasn't shipped yet</h1>
+    <p class="subtext">
+      The route <span class="path" id="pathText">/requested-page</span> isn't connected to anything live. It may have been migrated, renamed, or retired during rollout.
+    </p>
+
+    <div class="actions">
+      <button class="btn" id="backBtn" type="button">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Go back
+      </button>
+      <a class="btn btn-primary" href="/" id="homeBtn">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M9 22V12h6v10"/><path d="M4 10v11a1 1 0 0 0 1 1h4v-7h6v7h4a1 1 0 0 0 1-1V10"/></svg>
+        Back to home
+      </a>
+    </div>
+
+    <div class="hint">ERR_CODE 0x0404 · TRACE ID <span id="traceId">—</span></div>
+  </div>
+</div>
+
+<script src="../js/404.js"></script>
+</body>
+</html>
