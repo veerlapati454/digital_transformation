@@ -763,8 +763,34 @@ section{padding:100px 0;}
 }
 .story-grid .side-image img{height:420px;}
 .story-grid .quote-wrap{text-align:left;margin:0;}
-.story-avatars{display:flex;gap:10px;margin-top:26px;}
-.story-avatars img{width:34px;height:34px;border-radius:50%;border:2px solid var(--black);object-fit:cover;}
+
+/* Avatar row under the testimonial: presented as small photo "cards"
+   (framed tile + hover lift) rather than bare circular thumbnails. */
+.story-avatars{display:flex;gap:14px;margin-top:26px;}
+.avatar-card{
+  width:56px;
+  height:56px;
+  padding:5px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.avatar-card img{
+  width:100%;
+  height:100%;
+  border-radius:10px;
+  border:none;
+  object-fit:cover;
+  display:block;
+}
+.avatar-card:hover{
+  transform:translateY(-5px) scale(1.04);
+  border-color:var(--orange);
+  background:rgba(241,90,41,0.08);
+  box-shadow:0 12px 24px rgba(0,0,0,0.35);
+}
 
 /* ---------- FOOTER (dark, professional layout) ---------- */
 footer{
