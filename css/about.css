@@ -1506,22 +1506,40 @@ footer{
 }
 
 /* ---------- FIX: center the "Who we are" stat numbers on mobile ---------- */
+/* Uses flexbox (not text-align/justify-items alone) so the number, label,
+   and progress bar are truly centered as a column regardless of how wide
+   any individual line of text happens to be. .stat is forced to the full
+   width of its grid track so the flex centering has the whole row to work
+   with, rather than shrinking to content width and drifting off-center. */
 @media (max-width:700px){
   .about-stats-section .stats-row.four-up{
-    justify-items:center;
+    grid-template-columns:1fr !important;
+    justify-items:stretch;
   }
+  /* The general mobile rule ".stats-row .stat{padding-left:0 !important}"
+     (further up this file) zeroes out ONLY the left padding, leaving the
+     right padding at 30px. That asymmetric padding is what was shifting
+     every number/label left by ~15px, and it beat the plain (non-!important)
+     rule that used to be here. Restoring equal padding on both sides,
+     with matching !important and later source order, wins the tie. */
   .about-stats-section .stat{
-    width:100%;
-    text-align:center;
+    width:100% !important;
+    max-width:100% !important;
+    padding-left:30px !important;
+    padding-right:30px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
   }
   .about-stats-section .num,
   .about-stats-section .label{
-    text-align:center;
-    margin-left:auto;
-    margin-right:auto;
+    width:100%;
+    text-align:center !important;
   }
   .about-stats-section .stat-bar{
-    margin-left:auto;
-    margin-right:auto;
+    margin-left:auto !important;
+    margin-right:auto !important;
   }
 }
