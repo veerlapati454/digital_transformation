@@ -18,24 +18,26 @@
 *{ box-sizing:border-box; margin:0; padding:0; }
 
 html,body{
-  height:100%;
+  min-height:100%;
   background:
     radial-gradient(ellipse 120% 80% at 50% -10%, #12203a 0%, transparent 55%),
     radial-gradient(ellipse 100% 60% at 80% 110%, #1a1440 0%, transparent 50%),
     var(--bg-0);
   color:var(--ink);
   font-family:var(--disp);
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:auto;
 }
 
 .stage{
   position:relative;
-  height:100vh;
+  min-height:100vh;
   width:100vw;
   display:flex;
   align-items:center;
   justify-content:center;
   perspective:1400px;
+  padding:32px 0;
 }
 
 /* ---------- Circuit grid backdrop ---------- */
@@ -102,20 +104,51 @@ canvas#particles{
   text-align:center;
   padding:24px;
   max-width:640px;
-  transform:translateY(-8vh);
 }
 
+/* ---------- Brand logo ---------- */
+.brand-logo{
+  height:84px;
+  width:auto;
+  margin-bottom:36px;
+  opacity:1;
+  filter:drop-shadow(0 0 14px rgba(51,224,255,0.35));
+  display:block;
+}
+
+/* Text fallback shown if the image fails to load (see 404.js) */
+.brand-logo-text{
+  display:none;
+  align-items:center;
+  gap:10px;
+  margin-bottom:36px;
+  font-family:var(--disp);
+  font-weight:700;
+  font-size:24px;
+  letter-spacing:0.02em;
+  color:var(--ink);
+}
+.brand-logo-text .mark{
+  width:26px;
+  height:26px;
+  border-radius:6px;
+  background:linear-gradient(135deg, var(--cyan), var(--violet));
+  box-shadow:0 0 16px rgba(51,224,255,0.5);
+}
+.brand-logo-text.show{ display:flex; }
+
 @media (max-width:480px){
-  .content{ transform:translateY(-4vh); }
+  .brand-logo{ height:46px; margin-bottom:22px; }
+  .brand-logo-text{ font-size:19px; margin-bottom:22px; }
 }
 
 /* ---------- 3D fractured node ---------- */
 .node-wrap{
-  width:220px;
-  height:220px;
+  width:190px;
+  height:190px;
   position:relative;
   transform-style:preserve-3d;
-  margin-bottom:8px;
+  margin-bottom:0px;
   animation:floatY 5s ease-in-out infinite;
 }
 @keyframes floatY{
@@ -172,11 +205,11 @@ canvas#particles{
   opacity:0.9;
   animation:orbit linear infinite;
 }
-.frag:nth-child(1){ width:10px; height:10px; animation-duration:7s; --r:150px; }
-.frag:nth-child(2){ width:8px; height:8px; animation-duration:9s; --r:170px; animation-direction:reverse; }
-.frag:nth-child(3){ width:12px; height:12px; animation-duration:11s; --r:130px; }
-.frag:nth-child(4){ width:7px; height:7px; animation-duration:6s; --r:190px; animation-direction:reverse; }
-.frag:nth-child(5){ width:9px; height:9px; animation-duration:13s; --r:110px; }
+.frag:nth-child(2){ width:10px; height:10px; animation-duration:7s; --r:150px; }
+.frag:nth-child(3){ width:8px; height:8px; animation-duration:9s; --r:170px; animation-direction:reverse; }
+.frag:nth-child(4){ width:12px; height:12px; animation-duration:11s; --r:130px; }
+.frag:nth-child(5){ width:7px; height:7px; animation-duration:6s; --r:190px; animation-direction:reverse; }
+.frag:nth-child(6){ width:9px; height:9px; animation-duration:13s; --r:110px; }
 
 @keyframes orbit{
   from{ transform: rotateY(0deg) translateX(var(--r)) rotateY(0deg); }

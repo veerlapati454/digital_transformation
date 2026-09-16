@@ -321,6 +321,14 @@ header.solid{
 .nav-actions .btn{padding:10px 22px;font-size:13px;}
 .nav-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;}
 .nav-close{display:none;}
+/* Logo shown inside the mobile hamburger panel; hidden on desktop nav */
+.nav-logo{
+  display:none;
+}
+.nav-logo-img{
+  height:74px;
+  width:auto;
+}
 
 /* ---------- HERO (fixed) ---------- */
 .hero{
@@ -704,6 +712,46 @@ section{padding:100px 0;}
   font-weight:600;
   margin-bottom:10px;
 }
+/* ---------- SECTION: final CTA (bookends the hero gradient) ---------- */
+.cta-close{
+  position:relative;
+  overflow:hidden;
+  background:var(--purple-dark);
+  padding:130px 0;
+  text-align:center;
+}
+.cta-glow{
+  position:absolute;
+  inset:-20%;
+  background:
+    radial-gradient(circle at 50% 30%, var(--pink) 0%, var(--purple) 40%, var(--purple-dark) 75%);
+  opacity:0.9;
+  z-index:0;
+}
+.cta-close-inner{
+  position:relative;
+  z-index:2;
+  max-width:640px;
+}
+.cta-close h2{
+  font-size:clamp(30px,4vw,48px);
+  font-weight:600;
+  line-height:1.2;
+  color:#fff;
+  margin-bottom:20px;
+}
+.cta-close p{
+  font-size:16px;
+  line-height:1.7;
+  color:rgba(255,255,255,0.82);
+  font-weight:300;
+  margin:0 auto 36px;
+  max-width:440px;
+}
+
+@media (max-width:700px){
+  .cta-close{padding:90px 0;}
+}
 .diamond-anim{width:78px;height:78px;flex:none;}
 .diamond-anim svg{width:100%;height:100%;animation:spin 12s linear infinite;}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
@@ -830,6 +878,7 @@ footer{
 }
 .footer-contact-row:hover{color:var(--orange);}
 .footer-contact-row:last-child{margin-bottom:0;}
+.footer-hours + .footer-contact-row{margin-top:20px;}
 .footer-contact-icon{
   width:38px;height:38px;
   border-radius:50%;
@@ -842,6 +891,37 @@ footer{
   color:rgba(255,255,255,0.85);
 }
 .footer-contact-icon svg{width:16px;height:16px;display:block;}
+
+/* Newsletter column — replaces the old "Direct line" column */
+.footer-newsletter-copy{
+  color:rgba(255,255,255,0.78);
+  font-size:14px;
+  line-height:1.7;
+  font-weight:300;
+  max-width:250px;
+  margin:0 0 22px;
+}
+.footer-newsletter-row{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  width:fit-content;
+  padding:13px 22px;
+  border-radius:40px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.28);
+  color:#fff;
+  font-size:14px;
+  font-weight:600;
+  transition:background .2s ease, transform .2s ease, border-color .2s ease;
+}
+.footer-newsletter-row svg{width:16px;height:16px;transition:transform .2s ease;flex:none;}
+.footer-newsletter-row:hover{
+  background:rgba(255,255,255,0.18);
+  border-color:rgba(255,255,255,0.45);
+  transform:translateY(-2px);
+}
+.footer-newsletter-row:hover svg{transform:translateX(3px);}
 
 .footer-bottom{
   position:relative;z-index:2;
@@ -914,6 +994,13 @@ footer{
     z-index:100;
     overflow-y:auto;
   }
+  .nav-logo{
+    display:flex;
+    position:absolute;
+    top:22px;
+    left:24px;
+    align-items:center;
+  }
   .nav-links a{font-size:24px;font-weight:600;}
   .nav-links.open{transform:translateX(0);}
   .nav-close{
@@ -974,6 +1061,7 @@ footer{
   .btn, .btn-link{margin-left:auto;margin-right:auto;}
   .support-card{margin-left:auto;margin-right:auto;}
   .footer-contact-row{justify-content:center;}
+  .footer-newsletter-copy{margin-left:auto;margin-right:auto;}
   .story-avatars{justify-content:center;}
   .avatar-cluster{margin-left:auto;margin-right:auto;}
   .footer-top{grid-template-columns:1fr;row-gap:44px;}
@@ -1106,6 +1194,8 @@ footer{
   display:flex;
   flex-direction:column;
   justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 .team-stat-card .num{
   font-family:'Poppins',sans-serif;
@@ -1413,4 +1503,25 @@ footer{
   .about-hero-inner h1{font-size:clamp(26px,7vw,36px);}
   .stat-card .big, .revenue-figure .num{font-size:36px;}
   .team-stat-card .num{font-size:34px;}
+}
+
+/* ---------- FIX: center the "Who we are" stat numbers on mobile ---------- */
+@media (max-width:700px){
+  .about-stats-section .stats-row.four-up{
+    justify-items:center;
+  }
+  .about-stats-section .stat{
+    width:100%;
+    text-align:center;
+  }
+  .about-stats-section .num,
+  .about-stats-section .label{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .about-stats-section .stat-bar{
+    margin-left:auto;
+    margin-right:auto;
+  }
 }

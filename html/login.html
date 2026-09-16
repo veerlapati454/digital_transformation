@@ -10,6 +10,13 @@
 </head>
 <body>
 
+<!-- Sticky brand logo — lives outside .login-shell so position:fixed
+     pins it to the viewport and it stays visible while scrolling,
+     on both the desktop split layout and the mobile stacked layout. -->
+<a href="../index.html#home" class="login-brand">
+  <img src="../assets/stackly_logo.webp" alt="Stackly logo" class="login-brand-logo">
+</a>
+
 <div class="login-shell">
 
   <!-- LEFT: visual panel -->
@@ -17,20 +24,16 @@
     <img loading="eager" decoding="async" src="https://picsum.photos/seed/stackly-login-hand/1000/1200" alt="A hand reaching toward a glowing digital network, symbolizing human decisions guided by data" class="login-visual-img">
     <div class="login-visual-scrim" aria-hidden="true"></div>
 
-    <a href="../index.html#home" class="login-brand">
-      <img src="../assets/stackly_logo.webp" alt="Stackly logo" class="login-brand-logo">
-    </a>
-
     <h1 class="login-visual-title">Welcome</h1>
   </div>
 
   <!-- RIGHT: form panel -->
   <div class="login-panel">
     <div class="login-panel-inner">
-     <button type="button" class="login-back-top" onclick="history.back()">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
-  Back
-</button>
+      <a href="../index.html" class="login-back-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+        Back to Home
+      </a>
 
       <span class="login-eyebrow">Hello</span>
       <h2 class="login-heading">We are glad to see you :)</h2>
@@ -69,40 +72,22 @@
         </fieldset>
 
         <div class="login-field login-field--full">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="e.g. Jane Doe" autocomplete="name" pattern="[A-Za-z\s]+" maxlength="48" required>
-          <span class="login-hint" data-error-for="name">Letters only.</span>
-        </div>
-
-        <div class="login-field login-field--full">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" placeholder="you@gmail.com" autocomplete="email" required>
           <span class="login-hint" data-error-for="email">Only @gmail.com addresses are accepted.</span>
         </div>
 
-        <div class="login-grid">
-  <div class="login-field">
-    <label for="password">Password</label>
-    <div class="login-password-wrap">
-      <input type="password" id="password" name="password" placeholder="xxxxxxxx" autocomplete="new-password" minlength="6" required>
-      <button type="button" class="login-password-toggle" data-target="password" aria-label="Show password">
-        <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
-        <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none;"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a20.3 20.3 0 0 1 4.22-5.36M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a20.5 20.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-      </button>
-    </div>
-  </div>
-  <div class="login-field">
-    <label for="repeatPassword">Repeat Password</label>
-    <div class="login-password-wrap">
-      <input type="password" id="repeatPassword" name="repeatPassword" placeholder="xxxxxxxx" autocomplete="new-password" minlength="6" required>
-      <button type="button" class="login-password-toggle" data-target="repeatPassword" aria-label="Show password">
-        <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
-        <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none;"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a20.3 20.3 0 0 1 4.22-5.36M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a20.5 20.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-      </button>
-    </div>
-    <span class="login-hint" data-error-for="repeatPassword">Passwords must match.</span>
-  </div>
-</div>
+        <div class="login-field login-field--full">
+          <label for="password">Password</label>
+          <div class="login-password-wrap">
+            <input type="password" id="password" name="password" placeholder="xxxxxxxx" autocomplete="current-password" minlength="6" required>
+            <button type="button" class="login-password-toggle" data-target="password" aria-label="Show password">
+              <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none;"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a20.3 20.3 0 0 1 4.22-5.36M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a20.5 20.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          <span class="login-hint" data-error-for="password">Password must be at least 6 characters.</span>
+        </div>
 
         <div class="login-row">
           <label class="login-remember">
@@ -111,8 +96,6 @@
           </label>
           <a href="./404.html" class="login-forgot">Forgot password?</a>
         </div>
-
-        
 
         <button type="submit" class="login-submit">Login</button>
 

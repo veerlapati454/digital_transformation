@@ -498,7 +498,7 @@
 .phone-badge--top{top:16px;right:16px;}
 .phone-badge--bottom{left:12px;bottom:50px;}
 
-/* toggle switches (card --toggle) */
+/* toggle rows (card --toggle) */
 .toggle-stack{margin-top:22px;display:flex;flex-direction:column;gap:16px;}
 .toggle-row{
   display:flex;
@@ -508,23 +508,6 @@
   border-radius:14px;
   padding:14px 16px;
 }
-.toggle-switch{
-  flex:0 0 auto;
-  width:38px;height:22px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.2);
-  position:relative;
-}
-.toggle-switch.is-on{background:var(--orange);}
-.toggle-knob{
-  position:absolute;
-  top:3px;left:3px;
-  width:16px;height:16px;
-  border-radius:50%;
-  background:#fff;
-  transition:left .2s ease;
-}
-.toggle-switch.is-on .toggle-knob{left:19px;}
 .toggle-label{font-size:13.5px;font-weight:600;color:#fff;line-height:1.5;}
 .toggle-label small{font-weight:400;color:rgba(255,255,255,0.7);}
 
@@ -590,4 +573,9 @@
   .blog-grid{grid-template-columns:1fr;}
   .compare-sidebar{flex-direction:column;}
   .feature-card-desc{max-width:100%;}
+
+  /* Center the "Endless reports, instantly" card copy on mobile so it
+     reads the same way as the "Stay in control" card above it. */
+  .feature-card--generator{text-align:center;}
+  .feature-card--generator .feature-card-desc{margin-left:auto;margin-right:auto;}
 }

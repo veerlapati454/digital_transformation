@@ -34,7 +34,10 @@ body{
   bottom:0;
   width:52%;
   overflow:hidden;
-  padding:48px 0 32px 64px;
+  /* Padding now scales with viewport width so the panel's content
+     doesn't crowd the edges on narrower desktop widths, or look
+     lost on very wide screens. */
+  padding:clamp(32px,5vw,48px) 0 32px clamp(32px,6vw,64px);
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -62,7 +65,10 @@ body{
   margin:0;
 }
 .signup-brand-logo{
-  height:100px;
+  /* Scales between 64px and 100px based on viewport width instead of
+     staying a fixed 100px, so it doesn't feel oversized on tighter
+     desktop widths just above the 980px breakpoint. */
+  height:clamp(64px,7vw,100px);
   width:auto;
   display:block;
 }
@@ -72,7 +78,10 @@ body{
   z-index:2;
   display:flex;
   gap:12px;
-  max-width:480px;
+  /* Scales with the panel's actual width so the grid stays
+     proportional instead of a fixed pixel size that can crowd a
+     narrower left panel. */
+  max-width:min(480px, 40vw);
   margin:0;
 }
 .hex-col{
@@ -100,13 +109,13 @@ body{
 .hex--label{
   font-family:'JetBrains Mono', monospace;
   font-weight:700;
-  font-size:15px;
+  font-size:clamp(13px,1.1vw,15px);
   letter-spacing:1px;
 }
 .hex--text{
   font-family:'Poppins',sans-serif;
   font-weight:500;
-  font-size:13px;
+  font-size:clamp(11px,1vw,13px);
   line-height:1.35;
   text-align:center;
   padding:0 14%;

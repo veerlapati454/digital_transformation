@@ -12,6 +12,10 @@
    margin-left, and its rounded left edge is cut with border-radius.
    Because the photo already extends under that curve, whatever the
    radius exposes is more photo — never a bare background color.
+
+   Logo: fixed to the viewport (not the photo layer) so it stays
+   visible/sticky no matter how the page scrolls, on both the desktop
+   split layout and the mobile stacked layout.
    ===================================================================== */
 
 :root{
@@ -26,6 +30,7 @@
 html, body{
   margin:0;
   height:100%;
+  overflow-x:hidden;
 }
 
 body{
@@ -63,20 +68,28 @@ body{
   background:linear-gradient(180deg, rgba(5,4,10,0.55) 0%, rgba(5,4,10,0.15) 35%, rgba(5,4,10,0.65) 100%);
 }
 
+/* ---------- Sticky brand logo ---------- */
+/* position:fixed pins this to the viewport itself rather than to
+   .login-visual, so it stays put while the page scrolls on both the
+   tall mobile stacked layout and the desktop split layout. Kept
+   background-free per request; a drop-shadow is used instead of a
+   pill so the mark still reads clearly whether it's sitting over the
+   photo, the purple panel, or the orange button as the page scrolls. */
 .login-brand{
-  position:absolute;
-  top:48px;
-  left:48px;
+  position:fixed;
+  top:24px;
+  left:24px;
+  z-index:50;
   display:flex;
   align-items:center;
   text-decoration:none;
-  z-index:2;
+  transition:top .2s ease, left .2s ease;
 }
 .login-brand-logo{
-  height:64px;
+  height:56px;
   width:auto;
   display:block;
-  mix-blend-mode:multiply;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,0.35));
 }
 
 .login-visual-title{
@@ -197,6 +210,7 @@ body{
   background-image:linear-gradient(155deg, var(--panel-purple-1) 0%, var(--panel-purple-2) 60%, #6a4ce8 100%);
 }
 
+/* ---------- Back to Home link ---------- */
 .login-back-top{
   display:inline-flex;
   align-items:center;
@@ -214,6 +228,7 @@ body{
 }
 .login-back-top svg{width:14px;height:14px;}
 .login-back-top:hover{color:var(--ink);}
+
 /* ---------- Form ---------- */
 .login-form{display:flex;flex-direction:column;gap:20px;}
 
@@ -292,12 +307,6 @@ body{
 .login-role-pill input:focus-visible + span{
   outline:2px solid #fff;
   outline-offset:2px;
-}
-
-.login-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
 }
 
 .login-field input{
@@ -396,7 +405,8 @@ body{
     display:flex;
     flex-direction:column;
     min-height:100vh;
-    overflow:visible;
+    overflow-x:hidden;
+    overflow-y:visible;
   }
   .login-visual{
     position:relative;
@@ -412,11 +422,16 @@ body{
     padding:48px 7vw 64px;
   }
   .login-divider span{background-image:none;background:var(--panel-purple-2);}
+  .login-brand-logo{height:48px;}
 }
 
 @media (max-width:560px){
-  .login-grid{grid-template-columns:1fr;}
-  .login-brand{top:24px;left:24px;}
   .login-visual-title{left:24px;}
   .login-submit{width:100%;text-align:center;}
+
+  .login-brand{
+    top:16px;
+    left:16px;
+  }
+  .login-brand-logo{height:44px;}
 }

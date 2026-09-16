@@ -12,6 +12,15 @@
     });
   }
 
+  const phoneInput = form.querySelector('input[name="phone"]');
+  if (phoneInput) {
+    // Strip anything that isn't a digit as the person types (covers typing + paste)
+    phoneInput.addEventListener('input', () => {
+      const cleaned = phoneInput.value.replace(/[^0-9]/g, '');
+      if (cleaned !== phoneInput.value) phoneInput.value = cleaned;
+    });
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (form.checkValidity()) {

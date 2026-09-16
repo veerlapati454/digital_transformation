@@ -1,3 +1,19 @@
+// Logo fallback: if the image is missing/broken, swap in the text mark instead
+(function(){
+  var img = document.getElementById('logoImg');
+  var fallback = document.getElementById('logoFallback');
+  if(!img || !fallback) return;
+  function useFallback(){
+    img.style.display = 'none';
+    fallback.classList.add('show');
+  }
+  if(img.complete && img.naturalWidth === 0){
+    useFallback();
+  } else {
+    img.addEventListener('error', useFallback);
+  }
+})();
+
 // Populate the attempted path from the URL, and a synthetic trace id.
 try{
   var p = window.location.pathname;
