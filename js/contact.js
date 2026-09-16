@@ -29,6 +29,33 @@
       form.reportValidity();
     }
   });
+
+  // ---------- Clear the form if the page is restored from bfcache ----------
+  // When the user submits and then hits the browser's Back button, most
+  // browsers restore the exact DOM snapshot from before navigation (bfcache)
+  // instead of reloading the page from scratch. That means old input values
+  // reappear even though form.reset() already ran on submit. The `pageshow`
+  // event fires on that kind of restore, with `event.persisted` set to true;
+  // we also check the Navigation Timing API's entry type as a fallback for
+  // browsers that don't set `persisted` reliably. Either signal means we're
+  // looking at a restored page, so we wipe the fields again.
+  function clearContactForm() {
+    form.reset();
+    form.querySelectorAll('input, textarea').forEach((el) => {
+      el.value = '';
+    });
+  }
+
+  window.addEventListener('pageshow', (event) => {
+    const navEntry = performance.getEntriesByType
+      ? performance.getEntriesByType('navigation')[0]
+      : null;
+    const isBackForward = navEntry ? navEntry.type === 'back_forward' : false;
+
+    if (event.persisted || isBackForward) {
+      clearContactForm();
+    }
+  });
 })();
 
 // ---------- FAQ accordion ----------
